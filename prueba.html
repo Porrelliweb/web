@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pedido</title>
+    <link rel="icon" href="letra-p.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados para el formulario */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f8ff; /* Cambia el color de fondo */
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            margin: 0 auto;
+            max-width: 600px; /* Aumentar el ancho máximo */
+            background-color: white;
+            padding: 30px; /* Aumentar el padding */
+            border-radius: 15px; /* Bordes más redondeados */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+        }
+
+        .form-container input,
+        .form-container select {
+            width: 100%;
+            padding: 12px; /* Aumentar el padding */
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px; /* Bordes más redondeados */
+        }
+
+        .form-container button {
+            background-color: #4CAF50; /* Color de fondo verde */
+            color: white;
+            padding: 12px 20px; /* Aumentar el padding */
+            border: none;
+            border-radius: 8px; /* Bordes más redondeados */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049; /* Cambiar el color al pasar el ratón */
+        }
+
+        #otherNeighborhood {
+            display: none; /* Ocultar el campo de "Otro" inicialmente */
+        }
+    </style>
+</head>
+<body>
+    <h2>Enviar Pedido</h2>
+    <div class="form-container">
+        <input type="text" id="fullName" placeholder="Nombre Completo" required>
+        <input type="tel" id="phone" placeholder="Teléfono (10 dígitos)" required pattern="\d{10}" maxlength="10" oninput="validatePhone()">
+        <input type="text" id="address" placeholder="Dirección" required>
+        <select id="locality" onchange="updateNeighborhoods()" required>
+            <option value="">Seleccione Localidad</option>
+            <option value="usaquen">Usaquén</option>
+            <option value="chapinero">Chapinero</option>
+            <option value="santa-fe">Santa Fé</option>
+            <option value="san-cristobal">San Cristóbal</option>
+            <option value="usme">Usme</option>
+            <option value="tunjuelito">Tunjuelito</option>
+            <option value="bosa">Bosa</option>
+            <option value="kennedy">Kennedy</option>
+            <option value="fontibon">Fontibón</option>
+            <option value="engativa">Engativá</option>
+            <option value="suba">Suba</option>
+            <option value="barrios-unidos">Barrios Unidos</option>
+            <option value="teusaquillo">Teusaquillo</option>
+            <option value="los-martires">Los Mártires</option>
+            <option value="antonio-narino">Antonio Nariño</option>
+            <option value="puente-aranda">Puente Aranda</option>
+            <option value="candelaria">Candelaria</option>
+            <option value="rafael-uribe-uribe">Rafael Uribe Uribe</option>
+            <option value="ciudad-bolivar">Ciudad Bolívar</option>
+            <option value="sumapaz">Sumapaz</option>
+        </select>
+        <select id="neighborhood" required onchange="checkOtherOption()">
+            <option value="">Seleccione Barrio</option>
+            
+        </select>
+        <input type="text" id="otherNeighborhood" placeholder="Escriba su barrio" required>
+        <input type="text" id="city" value="Bogotá D.C." readonly required>
+        <button onclick="sendToWhatsApp()">Enviar a WhatsApp</button>
+    </div>
+
+    <script>
+        // Función para validar el teléfono
+        function validatePhone() {
+            const phoneInput = document.getElementById('phone');
+            const phoneValue = phoneInput.value;
+            if (!/^\d{0,10}$/.test(phoneValue)) {
+                phoneInput.setCustomValidity('El teléfono debe contener solo dígitos y tener un máximo de 10 dígitos.');
+            } else {
+                phoneInput.setCustomValidity('');
+            }
+        }
+
+        // Función para actualizar los barrios según la localidad seleccionada
+        function updateNeighborhoods() {
+            const locality = document.getElementById('locality').value;
+            const neighborhoodSelect = document.getElementById('neighborhood');
+            neighborhoodSelect.innerHTML = ''; // Limpiar opciones anteriores
+
+            let neighborhoods = [];
+
+            // Barrios por localidad
+            if (locality === 'usaquen') {
+                neighborhoods = ['Ainsuca',
+'Acacías',
+'Altablanca',
+'Alto de Serrezuela',
+'Antigua',
+'Babilonía',
+'Barrancas',
+'Balcones de Vista Hermosa',
+'Balmoral Norte',
+'Bella Suiza',
+'Bellavista',
+'Belmira',
+'Bosque de Pinos',
+'Bosque de San Antonio',
+'Bosque Medín',
+'Buenavista',
+'California',
+'Canaima',
+'Campo Alegre',
+'Capri',
+'Caobos Salazar',
+'Cedritos',
+'Cedro Bolívar',
+'Cedro Golf',
+'Cedro Madeira',
+'Cedro Narváez',
+'Cedro Salazar',
+'Cerro Norte',
+'Chaparral',
+'Conjunto Camino del Palmar',
+'Country Club',
+'Danubio',
+'Dardanelos',
+'Don Bosco',
+'El Callejón',
+'El Codito',
+'El Contador',
+'El Pañuelito',
+'El Pedregal',
+'El Pite',
+'El Redil',
+'El Refugio de San Antonio',
+'El Toberín',
+'El Verbenal',
+'Escuela de C',
+'Escuela de IN',
+'Estrella del Norte',
+'Francisco Mir',
+'Ginebra',
+'Guanoa',
+'Horizontes',
+'Jardín Norte',
+'La Calleja',
+'La Carolina',
+'La Cita',
+'La Cristalina',
+'La Estrellita',
+'La Esperanza',
+'La Floresta de la Sabana',
+'La Frontera',
+'La Granja Norte',
+'La Glorieta',
+'La Liberia',
+'La Llanurita',
+'La Mónica',
+'La Pañuelito',
+'La Perla Oriental',
+'La Pradera Norte',
+'La Sonora',
+'La Uribe',
+'Las Areneras',
+'Las Delicias D',
+'Las Margaritas',
+'Las Orquídeas',
+'Lisboa',
+'Los Cedros',
+'Los Cedros Orientales',
+'Los Consuelos',
+'Los Naranjos',
+'Maranta',
+'Maturín',
+'Medellín',
+'Milán (Barrancas)',
+'Mirador del Norte',
+'Molinos del Norte',
+'Multicentro',
+'Montearroyo',
+'Navarra',
+'Nuevo Country',
+'Nuevo Horizonte',
+'Nueva Autopista',
+'Pantanitos',
+'Prados del Country',
+'Recodo del Country',
+'Rincón del Chicó',
+'San Antonio Norte',
+'San Cristobal Norte',
+'Santa Cecilia Norte Parte Alta',
+'Santa Cecilia Parte Baja',
+'San Gabriel',
+'San Juan Bosco',
+'San Patricio',
+'Santa Ana',
+'Santa Ana OC',
+'Santa Bárbara',
+'Santa Bibiana',
+'Santa Cecilia Norte Parte Alta',
+'Santa Cecilia Parte Baja',
+'Santa Coloma',
+'Santa Felisa',
+'Santa Mónica',
+'Santandersito',
+'Santa Paula',
+'Santa Teresa',
+'Sagrado Cora',
+'Sierras del Moral',
+'Soratama',
+'Tibabita',
+'Toledo',
+'Torres del Country',
+'Torca 1',
+'Torca 2',
+'Torca Rural 1',
+'Torca Rural 2',
+'Torcoroma',
+'Urbanización Los Laureles',
+'Unicerros',
+'Usaquén',
+'Vergel Del Co',
+'Viña del Mar',
+'Villa Magdala',
+'Villa Nydia',
+'Villa Oliva',
+'Villas de Aranjuez',
+'Villas del Mediterráneo',
+'Zaragoza','Otro'];
+            } else if (locality === 'chapinero') {
+                neighborhoods = ['Chico Reservado', 'Bellavista', 'Chico Alto','Antiguo Country',
+'Bellavista',
+'Bosque Calderón',
+'Bosque Calderón Tejada',
+'Cataluña',
+'Chapinero Alto',
+'Chapinero Central',
+'Chapinero Norte',
+'Chico Alto',
+'Chico Norte',
+'Chico Norte II',
+'Chico Norte III',
+'Chico Occidental',
+'Chico Reservado',
+'El Castillo',
+'El Chico',
+'El Nogal',
+'El Palomar',
+'El Paraíso',
+'El Refugio',
+'El Retiro',
+'Emaus',
+'Espartillal',
+'Granada',
+'Ingemar',
+'Juan XXIII',
+'Lago Gaitán',
+'La Cabrera',
+'La Esperanza Nororiental',
+'La Porciúncula',
+'La Salle',
+'La Sureña',
+'Las Acacias',
+'Los Olivos',
+'Los Rosales',
+'María Cristina',
+'Marly',
+'Mariscal Sucre',
+'Nueva Granada',
+'Pardo Rubio',
+'Quinta Camacho',
+'San Isidro',
+'San Luis Altos del Cabo',
+'San Martín de Porres',
+'Seminario',
+'Sucre',
+'Toscana',
+'Villa Anita',
+'Villa del Cerro','Otro'];
+            } else if (locality === 'santa-fe') {
+                neighborhoods = ['Santa Fé', 'Las Nieves', 'Otro'];
+            } else if (locality === 'san-cristobal') {
+                neighborhoods = ['San Cristóbal Norte', 'San Cristóbal Sur', 'Otro'];
+            } else if (locality === 'usme') {
+                neighborhoods = ['Usme Centro', 'El Manantial', 'La Aurora'];
+            } else if (locality === 'tunjuelito') {
+                neighborhoods = ['Tunjuelito', 'El Tintal', 'La Paz'];
+            } else if (locality === 'bosa') {
+                neighborhoods = ['Bosa Centro', 'Bosa San José', 'El Jardín'];
+            } else if (locality === 'kennedy') {
+                neighborhoods = ['Kennedy', 'Bosque de Lijacita', 'Las Ferias'];
+            } else if (locality === 'fontibon') {
+                neighborhoods = ['Fontibón', 'Britalia', 'Villa de Fontibón'];
+            } else if (locality === 'engativa') {
+                neighborhoods = ['Engativá', 'Bosa', 'Quirigua'];
+            } else if (locality === 'suba') {
+                neighborhoods = ['Suba Centro', 'El Rincón', 'Los Nuevos'];
+            } else if (locality === 'barrios-unidos') {
+                neighborhoods = ['Barrios Unidos', 'Pardo Rubio', 'Luz Salgar'];
+            } else if (locality === 'teusaquillo') {
+                neighborhoods = ['Teusaquillo', 'La Alhambra', 'Colpatria'];
+            } else if (locality === 'los-martires') {
+                neighborhoods = ['Los Mártires', 'San Antonio', 'El Valle'];
+            } else if (locality === 'antonio-narino') {
+                neighborhoods = ['Antonio Nariño', 'La Fragua', 'Nariño'];
+            } else if (locality === 'puente-aranda') {
+                neighborhoods = ['Puente Aranda', 'El Salitre', 'Las Aguas'];
+            } else if (locality === 'candelaria') {
+                neighborhoods = ['La Candelaria', 'Santa Fé', 'San Diego'];
+            } else if (locality === 'rafael-uribe-uribe') {
+                neighborhoods = ['Rafael Uribe Uribe', 'Las Flores', 'El Paraíso'];
+            } else if (locality === 'ciudad-bolivar') {
+                neighborhoods = ['Ciudad Bolívar', 'Tierra Blanca', 'El Mirador'];
+            } else if (locality === 'sumapaz') {
+                neighborhoods = ['Sumapaz', 'El Guavio', 'Las Aguas'];
+            }
+
+            // Agregar las opciones de barrios al select
+            neighborhoods.forEach(neighborhood => {
+                const option = document.createElement('option');
+                option.value = neighborhood;
+                option.textContent = neighborhood;
+                neighborhoodSelect.appendChild(option);
+            });
+
+            checkOtherOption(); // Revisar si "Otro" debe estar visible
+        }
+
+        // Función para mostrar el campo de "Otro" si se selecciona esa opción
+        function checkOtherOption() {
+            const neighborhoodSelect = document.getElementById('neighborhood');
+            const otherNeighborhoodInput = document.getElementById('otherNeighborhood');
+            
+            if (neighborhoodSelect.value === 'Otro') {
+                otherNeighborhoodInput.style.display = 'block';
+            } else {
+                otherNeighborhoodInput.style.display = 'none';
+            }
+        }
+
+        function sendToWhatsApp() {
+            const fullName = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const neighborhood = document.getElementById('neighborhood').value.trim() === 'Otro'
+                ? document.getElementById('otherNeighborhood').value.trim()
+                : document.getElementById('neighborhood').value.trim();
+            const locality = document.getElementById('locality').value.trim();
+            const city = document.getElementById('city').value.trim();
+
+            // Validar que todos los campos estén completos
+            if (!fullName || !phone || !address || !neighborhood || !locality || !city) {
+                alert("Por favor, completa todos los campos.");
+                return; // Detener la ejecución si algún campo está vacío
+            }
+
+            const message = `Hola, soy ${fullName}. Quiero hacer un pedido con la siguiente información:\nTeléfono: ${phone}\nDirección: ${address}\nLocalidad: ${locality}\nBarrio: ${neighborhood}\nCiudad: ${city}`;
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=573227243538&text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>

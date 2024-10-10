@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porrelli | Estilo a tu Calzado</title>
+    <link rel="icon" href="letra-p.ico">
+    <link rel="stylesheet" href="style_formulario.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --colorPrimario: #ffffff;
+            --colorSecundario: #ec5109;
+            --colorComplementario: #d19f70;
+            --colorFondo: #f9f9f9;
+            --colorDestacado: #ffcd00;
+        }
+
+        body {
+            background: var(--colorFondo);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 250px;
+            margin: 20px 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        nav {
+            background-color: var(--colorSecundario);
+            padding: 10px 0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #ffffff;
+            padding: 15px 25px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+            border-radius: 5px;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a:hover {
+            background: var(--colorDestacado);
+            color: #333;
+            transform: translateY(-3px);
+        }
+
+        .carousel {
+            margin: 20px 0;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel img:hover {
+            transform: scale(1.05);
+        }
+
+        .social-media {
+            margin: 20px 0;
+        }
+
+        .social-icon {
+            font-size: 40px;
+            color: rgb(204, 204, 204);
+            margin: 0 15px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-icon:hover {
+            color: var(--colorDestacado);
+            transform: scale(1.1);
+        }
+
+        .cta-section {
+            background: var(--colorSecundario);
+            color: #ffffff;
+            padding: 30px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section h2 {
+            margin: 0 0 10px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            margin: 0 0 15px;
+            font-size: 16px;
+        }
+
+        .cta-button {
+            background: var(--colorDestacado);
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+            font-weight: 600;
+        }
+
+        .cta-button:hover {
+            background: #333;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Galería de Productos */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .gallery-item {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Nuestras Ofertas */
+        .offers {
+            margin: 40px 0;
+            padding: 20px;
+            border-radius: 10px;
+            background: var(--colorDestacado);
+            color: #333;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .offers h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .offer-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Testimonios */
+        .testimonials {
+            margin: 40px 0;
+            background: var(--colorComplementario);
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonials h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial {
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        /* Mapa de Ubicación */
+        .map-section {
+            margin: 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-section iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        /* Formulario de Suscripción */
+        .subscription-form {
+            background: #f0f0f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 40px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .subscription-form input[type="email"] {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .subscribe-button {
+            background: var(--colorSecundario);
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .subscribe-button:hover {
+            background: var(--colorDestacado);
+        }
+
+        footer {
+            background: black;
+            color: var(--colorSecundario);
+            padding: 15px;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            .logo {
+                width: 200px;
+            }
+
+            .cta-section {
+                margin: 20px 0;
+            }
+
+            .subscription-form input[type="email"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="text-center">
+            <img src="logoizquierdo.png" alt="Zapatos 1" class="img-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="porrelli.png" class="logo" alt="Logo de Porrelli">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="carrusel_3.png" class="img-right">
+        </header>
+        
+        <style>
+            .img-left {
+                width: 190px;  /* Ajusta este tamaño para la imagen del lado izquierdo */
+                height: auto;
+            }
+        
+            .img-right {
+                width: 250px; /* Ajusta este tamaño para la imagen del lado derecho */
+                height: auto;
+            }
+        
+            .logo {
+                width: 210px; /* Tamaño del logo de Porrelli */
+                margin: -1px 0;
+                animation: fadeIn 1s ease-in-out;
+            }
+        </style>
+        
+        
+        <br>
+        <nav>
+            <a href="pagina.html">Inicio</a>
+            <a href="pagina - copia.html">Nosotros</a>
+            <a href="hombre.html">Zapatos Hombre</a>
+            <a href="mujer.html">Zapatos Mujer</a>
+            <a href="formulario.html">Contáctanos</a>
+        </nav>
+        <section class="cta-section">
+            <h2>¿Estás listo para encontrar tu estilo?</h2>
+            <p>Descubre nuestra nueva colección de calzado.</p>
+            <a href="pagina.html" class="cta-button">Ver Productos</a>
+        </section>
+
+        
+
+        <div class="map-section">
+            <h3>Nuestra Ubicación</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.015548119058!2d-74.1060880252218!3d4.591232442597255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99210abe254b%3A0x6e84763ff533e477!2sCl.%2015%20Sur%20%2324h42%2C%20Bogot%C3%A1!5e0!3m2!1ses-419!2sco!4v1727480268651!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="social-media">
+            <a href="https://www.facebook.com/calzaporrelli" target="_blank" class="social-icon bi bi-facebook"></a>
+            <a href="https://www.instagram.com/calzadoporrelli/" target="_blank" class="social-icon bi bi-instagram"></a>
+            <a href="https://wa.link/86fx6s" target="_blank" class="social-icon bi bi-whatsapp"></a>
+        </div>
+
+        <footer>
+            <p>Derechos reservados PORRELLI | 2024 | Colombia</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.carousel-slide').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                arrows: false,
+            });
+        });
+    </script>
+</body>
+
+</html>

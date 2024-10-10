@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porrelli | Estilo a tu Calzado</title>
+    <link rel="icon" href="letra-p.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos globales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #ec5109;
+            padding: 20px 0;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        /* Menú de navegación */
+        nav {
+            margin: 20px 0;
+        }
+
+        nav a {
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ffcd00;
+            color: #333;
+        }
+
+        /* Estilo de los productos */
+        .product-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px; /* Espacio entre tarjetas */
+            padding: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px; /* Ancho fijo de la tarjeta */
+            text-align: center; /* Centrar texto */
+            display: flex;
+            flex-direction: column; /* Alinear verticalmente */
+            align-items: center; /* Centrar horizontalmente */
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            height: auto;
+            margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+        }
+
+        /* Botones de añadir al carrito */
+        .add-to-cart {
+            background-color: #ec5109;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: auto; /* Empuja el botón al final de la tarjeta */
+        }
+
+        .add-to-cart:hover {
+            background-color: #ffcd00;
+            color: #333;
+        }
+
+        /* Estilo del carrito */
+        .cart {
+            margin-top: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .cart h2 {
+            margin-bottom: 10px;
+            color: #ec5109;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centrar horizontalmente */
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item img {
+            width: 50px; /* Ancho de la imagen en el carrito */
+            height: auto;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        /* Estilo del formulario */
+        .form-container {
+            margin-top: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Oculto por defecto */
+        }
+
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            background-color: #ec5109;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #ffcd00;
+            color: #333;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Estilos de pantalla pequeña */
+        @media (max-width: 768px) {
+            .product-card {
+                width: 90%; /* Ancho adaptado para móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Porrelli</h1>
+        <nav>
+            <a href="pagina.html">Inicio</a>
+            <a href="pagina - copia.html">Nosotros</a>
+            <a href="hombre.html">Zapatos Hombre</a>
+            <a href="mujer.html">Zapatos Mujer</a>
+            <a href="formulario.html">Contáctanos</a>
+        </nav>
+    </header>
+
+    <!-- Contenedor de productos -->
+    <div class="product-container">
+        <div class="product-card">
+            <img src="./imagenes_calzado_hombre/calzado_hombre_1.png" alt="Zapatos Hombre 1">
+            <h3>Zapatos Hombre 1</h3>
+            <button class="add-to-cart" onclick="addToCart('Zapatos Hombre 1', './hombre_1.png')">Añadir al Carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="./imagenes_calzado_hombre/calzado_hombre_2.png" alt="Zapatos Hombre 2">
+            <h3>Zapatos Hombre 2</h3>
+            <button class="add-to-cart" onclick="addToCart('Zapatos Hombre 2', './hombre_2.png')">Añadir al Carrito</button>
+        </div>
+    </div>
+
+    <!-- Carrito de compras -->
+    <div class="cart" id="cart">
+        <h2>Carrito de Compras</h2>
+        <div id="cart-items"></div>
+        <p id="cart-total"></p>
+        <a href="formulario_pedido.html">Enviar al WhatsApp</a>
+    </div>
+
+    <!-- Formulario para enviar pedido -->
+    <div class="form-container" id="form-container">
+        <h2>Enviar Pedido</h2>
+        <input type="text" id="fullName" placeholder="Nombre Completo" required>
+        <input type="tel" id="phone" placeholder="Teléfono" required>
+        <input type="text" id="address" placeholder="Dirección" required>
+        <input type="text" id="neighborhood" placeholder="Barrio" required>
+        <input type="text" id="locality" placeholder="Localidad" required>
+        <input type="text" id="city" placeholder="Ciudad" required>
+        <button onclick="sendToWhatsApp()">Enviar a WhatsApp</button>
+    </div>
+
+    <footer>
+        <p>Derechos reservados Porrelli | 2024 | Colombia</p>
+    </footer>
+
+    <script>
+        // Función para añadir productos al carrito
+        let cartItems = [];
+        
+        function addToCart(name, image) {
+            cartItems.push({ name, image });
+            displayCart();
+        }
+
+        function displayCart() {
+            const cartList = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartList.innerHTML = ''; // Limpiar lista
+
+            cartItems.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `<img src="${item.image}" alt="${item.name}"><strong>${item.name}</strong>`;
+                cartList.appendChild(div);
+            });
+
+            cartTotal.textContent = `Total de artículos: ${cartItems.length}`;
+        }
+
+        // Función para mostrar el formulario
+        function showForm() {
+            const formContainer = document.getElementById('form-container');
+            formContainer.style.display = 'block'; // Mostrar formulario
+        }
+
+        // Función para enviar a WhatsApp
+        function sendToWhatsApp() {
+            const fullName = document.getElementById('fullName').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const neighborhood = document.getElementById('neighborhood').value;
+            const locality = document.getElementById('locality').value;
+            const city = document.getElementById('city').value;
+
+            const cartDetails = cartItems.map(item => item.name).join(', '); // Detalles del carrito
+            const message = `Hola, soy ${fullName}. Quiero hacer un pedido: ${cartDetails}. Mi teléfono es ${phone} y la dirección de entrega es ${address}, ${neighborhood}, ${locality}, ${city}.`;
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+
+            window.open(whatsappUrl, '_blank'); // Abrir WhatsApp
+        }
+    </script>
+</body>
+</html>
