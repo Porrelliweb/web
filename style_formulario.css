@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4a69e1, #8c72d5); /* Fondo degradado vibrante */
+    padding: 10px; /* Añadir padding para evitar que el contenido toque los bordes */
+}
+
+.contact {
+    width: 100%;
+    max-width: 600px; /* Ancho máximo para pantallas grandes */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px; /* Bordes más redondeados */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); /* Sombra más intensa */
+    text-align: center; /* Centrar el texto */
+    position: relative; /* Para posicionar el pseudo-elemento */
+    overflow: hidden; /* Para ocultar el pseudo-elemento */
+    animation: fadeIn 0.5s ease-in-out; /* Animación de entrada */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* Se desliza hacia arriba */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(91, 228, 238, 0.3); /* Fondo con transparencia */
+    border-radius: 20px;
+    z-index: 0; /* Asegurarse que esté detrás del contenido */
+}
+
+.contact h2 {
+    font-size: 2.5rem; /* Tamaño de fuente grande */
+    color: #d38a8a;
+    margin-bottom: 20px;
+    position: relative; /* Para poner el texto sobre el pseudo-elemento */
+    z-index: 1; /* Asegurarse que el texto esté encima del fondo */
+    animation: slideDown 0.5s ease-out; /* Animación de entrada para el encabezado */
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* Deslizar hacia arriba */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.field {
+    margin-bottom: 20px; /* Espaciado entre campos */
+    position: relative; /* Para el efecto de sombra */
+}
+
+.field .item {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    color: black;
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco con algo de transparencia */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+.field .item:focus {
+    border-color: rgb(91, 228, 238); /* Color del borde al enfocar */
+    outline: none; /* Sin contorno por defecto */
+    box-shadow: 0 0 8px rgb(91, 228, 238), 0 0 25px rgba(91, 228, 238, 0.5); /* Sombra al enfocar */
+    transform: scale(1.02); /* Efecto de aumento al enfocar */
+}
+
+.field .item::placeholder {
+    color: rgb(170, 170, 170);
+}
+
+.textarea-field .item {
+    resize: none;
+    height: 120px; /* Altura fija para el área de texto */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los botones */
+    margin-top: 20px; /* Margen superior para separar de los campos anteriores */
+}
+
+button {
+    background-color: rgb(91, 228, 238);
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Añadir transformación */
+    flex: 1; /* Hacer que los botones ocupen espacio igual */
+    margin: 0 5px; /* Espaciado entre botones */
+    position: relative; /* Para el efecto de sombra */
+    animation: bounceIn 0.5s ease-in-out; /* Animación de entrada para botones */
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+button:hover {
+    background-color: #1a2c2c;
+    transform: translateY(-3px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Sombra más intensa al pasar el mouse */
+}
+
+.name-error {
+    font-size: 14.5px;
+    color: #c0aba9;
+    display: none; /* Ocultar por defecto */
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .contact h2 {
+        font-size: 2rem; /* Ajustar tamaño de fuente para móviles */
+    }
+
+    .contact {
+        padding: 20px; /* Reducir padding en móviles */
+    }
+
+    .field .item {
+        font-size: 14px; /* Ajustar tamaño de la fuente en campos para móviles */
+        padding: 12px; /* Reducir padding */
+    }
+
+    button {
+        padding: 12px; /* Ajustar el padding del botón en móviles */
+        font-size: 16px; /* Ajustar el tamaño de la fuente del botón */
+    }
+
+    .button-container {
+        flex-direction: column; /* Apilar botones en dispositivos más pequeños */
+        margin-top: 15px; /* Margen superior para botones en móvil */
+    }
+
+    button {
+        margin: 5px 0; /* Margen entre botones apilados */
+        width: 100%; /* Botones de ancho completo en móvil */
+    }
+}

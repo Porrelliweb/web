@@ -1,0 +1,6 @@
+/* Hacer las imágenes dentro de .item más pequeñas */
+.item figure img {
+    width: 60%; /* Ajusta el tamaño al 40% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}

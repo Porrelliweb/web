@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porrelli | Estilo a tu Calzado</title>
+    <link rel="icon" href="letra-p.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        /* Estilos globales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Estilo del logo */
+        .logo {
+            width: 200px;
+            margin: 30px 0;
+        }
+
+        /* Menú de navegación */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background-color: #ec5109;
+            padding: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #ffcd00;
+            color: #333;
+        }
+
+        /* Estilo de títulos */
+        h1.title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ec5109;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        /* Sección rotativa 3D */
+        .rotate-3d {
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+            margin-bottom: 40px;
+        }
+
+        .rotate-3d img {
+            width: 280px;
+            height: auto;
+            filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.2));
+            animation: rotar 15s linear infinite;
+            border-radius: 20px;
+        }
+
+        @keyframes rotar {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        /* Botones */
+        .cta-button {
+            background-color: #ec5109;
+            color: white;
+            font-weight: 600;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: #ffcd00;
+            color: #333;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            h1.title {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .rotate-3d img {
+                width: 240px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header con logo -->
+        <header>
+            <img src="porrelli.png" class="logo" alt="Logo Porrelli">
+        </header>
+
+        <!-- Menú de navegación -->
+        <nav>
+            <a href="pagina.html">Inicio</a>
+            <a href="pagina - copia.html">Nosotros</a>
+            <a href="hombre.html">Zapatos Hombre</a>
+            <a href="mujer.html">Zapatos Mujer</a>
+            <a href="formulario.html">Contáctanos</a>
+        </nav>
+
+        <!-- Sección de contenido principal -->
+        <div class="content">
+            <h1 class="title">PORRELLI</h1>
+            <h2>CALZADO PORRELLI</h2>
+            <p>Somos una empresa Colombiana, especializada en la fabricación y producción de calzado para caballero y dama, utilizando en nuestros procesos materiales de alta calidad que se ven reflejados en la duración, confort y suavidad de nuestros productos.</p>
+
+            <h2>Nuestra Misión</h2>
+            <p>CALZADO PORRELLI tiene como misión suministrar a grandes, medianas y pequeñas empresas una completa gama de productos que logren satisfacer a nuestros clientes, brindando comodidad y satisfacción a damas y caballeros.</p>
+
+            <h2>Nuestros Zapatos</h2>
+
+            <!-- Sección con imágenes rotativas 3D -->
+            <div class="rotate-3d">
+                <img class="imagen-2" src="zapatomujer.png" alt="Zapatos de Mujer">
+            </div>
+
+            <div class="rotate-3d">
+                <img class="imagen-1" src="zapatohombre.png" alt="Zapatos de Hombre">
+            </div>
+
+            <a href="#" class="cta-button">Ver Productos</a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Derechos reservados PORRELLI | 2024 | Colombia</p>
+        </footer>
+    </div>
+
+</body>
+</html>
