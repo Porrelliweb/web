@@ -5,199 +5,236 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Porrelli | Estilo a tu Calzado</title>
     <link rel="icon" href="letra-p.ico">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="styles_hombre.css">
+    <link rel="stylesheet" href="styles_small_images.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-    /* Estilos globales */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        /* Encabezado y menú de navegación */
+        header {
+            background-color: #ec5109;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            display: flex;
+            flex-direction: column; /* Cambia a flex-direction: column para apilar elementos verticalmente */
+            align-items: center; /* Centra horizontalmente los elementos */
+        }
+    
+        header h1 {
+            font-size: 36px;
+            margin: 0; /* Elimina el margen para mantener el título centrado */
+            text-align: center; /* Centrar el texto "Porrelli" */
+        }
+    
+        nav {
+            margin-top: 20px;
+            display: flex; /* Usar flexbox para alinear los enlaces de navegación */
+            justify-content: center; /* Centrar los botones horizontalmente */
+        }
+    
+        nav a {
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+    
+        nav a:hover {
+            background-color: #ffcd00;
+            color: #333;
+        }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    line-height: 1.6;
-}
+        /* Estilo para el footer */
+        footer {
+            background-color: #ec5109; /* Mismo color que el encabezado */
+            color: white; /* Color del texto */
+            text-align: center; /* Centrar el texto */
+            padding: 10px 0; /* Espaciado vertical */
+            position: relative; /* Para un mejor control de la posición */
+            bottom: 0; /* Asegura que esté al final de la página */
+            width: 100%; /* Asegura que ocupe todo el ancho */
+            margin-top: auto; /* Empuja el footer hacia el fondo en un contenedor flex */
+        }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Estilo del logo */
-.logo {
-    width: 200px;
-    margin: 30px 0;
-}
-
-/* Menú de navegación */
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    background-color: #ec5109;
-    padding: 15px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-nav a {
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-nav a:hover {
-    background-color: #ffcd00;
-    color: #333;
-    transform: translateY(-2px);
-}
-
-/* Estilo de títulos */
-h1.title {
-    font-size: 48px;
-    font-weight: 700;
-    margin: 20px 0;
-    color: #ec5109;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    font-size: 32px;
-    margin: 20px 0;
-    color: #333;
-}
-
-p {
-    font-size: 18px;
-    margin: 20px 0;
-    line-height: 1.8;
-}
-
-/* Sección rotativa 3D */
-.rotate-3d {
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 1000px;
-    margin-bottom: 40px;
-}
-
-.rotate-3d img {
-    width: 280px;
-    height: auto;
-    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.2));
-    animation: rotar 15s linear infinite;
-    border-radius: 20px;
-}
-
-@keyframes rotar {
-    from {
-        transform: rotateY(0deg);
-    }
-    to {
-        transform: rotateY(360deg);
-    }
-}
-
-/* Botones */
-.cta-button {
-    background-color: #ec5109;
-    color: white;
-    font-weight: 600;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 20px;
-    display: inline-block;
-}
-
-.cta-button:hover {
-    background-color: #ffcd00;
-    color: #333;
-    transform: translateY(-5px);
-}
-
-/* Footer */
-footer {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-top: 5px solid #ec5109; /* Línea superior */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-footer p {
-    margin: 0;
-    font-size: 14px; /* Tamaño de fuente más pequeño */
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-    h1.title {
-        font-size: 36px;
-    }
-
-    h2 {
-        font-size: 28px;
-    }
-
-    p {
-        font-size: 16px;
-    }
-
-    .rotate-3d img {
-        width: 240px;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
-</style>
+        footer p {
+            margin: 0; /* Elimina el margen para centrar el texto correctamente */
+            font-size: 14px; /* Tamaño de fuente más pequeño */
+        }
+    </style>
 </head>
 <body>
-
-    <div class="container">
-        <!-- Header con logo -->
-        <header>
-            <img src="porrelli.png" class="logo" alt="Logo Porrelli">
-        </header>
-
-        <!-- Menú de navegación -->
+    <header>
+        <h1>Porrelli</h1>
         <nav>
             <a href="pagina.html">Inicio</a>
             <a href="pagina - copia.html">Nosotros</a>
             <a href="hombre.html">Zapatos Hombre</a>
             <a href="mujer.html">Zapatos Mujer</a>
             <a href="formulario.html">Contáctanos</a>
+           
         </nav>
+    </header>
 
-        <!-- Sección de contenido principal -->
-        <div class="content">
-            <h2>CALZADO PORRELLI</h2>
-            <p>Somos una empresa Colombiana, especializada en la fabricación y producción de calzado para caballero y dama, utilizando en nuestros procesos materiales de alta calidad que se ven reflejados en la duración, confort y suavidad de nuestros productos.</p>
+    <body>
+        <header>
+          <div class="container-icon">
+            <div class="container-cart-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-cart">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+              </svg>
+              <div class="count-products">
+                <span id="contador-productos">0</span>
+              </div>
+            </div>
+            <div class="container-cart-products hidden-cart">
+              <div class="row-product hidden">
+                <!-- Productos del carrito -->
+              </div>
+              <div class="cart-total hidden">
+                <h3>Total:</h3>
+                <span class="total-pagar">$200</span>
+              </div>
+              <p class="cart-empty">El carrito está vacío</p>
 
-            <h2>Nuestra Misión</h2>
-            <p>CALZADO PORRELLI tiene como misión suministrar a grandes, medianas y pequeñas empresas una completa gama de productos que logren satisfacer a nuestros clientes, brindando comodidad y satisfacción a damas y caballeros.</p>
+              <button id="send-whatsapp" class="btn-whatsapp">
+                Siguiente
+            </button>
+            
+            </div>
+          </div>
+        </header>
+        <br>
+        <div class="container-items">
+            <div class="item">
+                <figure>
+                    <img src="./calzado_hombre_47.png" alt="Zapatos Hombre 47" />
+                </figure>
+                <div class="info-product">
+                    <h2>Zapatos Hombre 47</h2>
+                    <p class="price">$530</p>
+                    <button class="btn-add-cart">Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="item">
+                <figure>
+                    <img src="./calzado_hombre_48.png" alt="Zapatos Hombre 48" />
+                </figure>
+                <div class="info-product">
+                    <h2>Zapatos Hombre 48</h2>
+                    <p class="price">$540</p>
+                    <button class="btn-add-cart">Añadir al carrito</button>
+                </div>
+            </div>                                                                                                                     
+        </div>
+        <script src="index.js"></script>
+        <!-- Otros elementos de la página como el carrito, productos, etc. -->
 
-        <!-- Footer -->
-        <footer>
-            <p>Derechos reservados PORRELLI | 2024 | Colombia</p>
-        </footer>
+    <script>
+    const botonesAgregar = document.querySelectorAll('.btn-add-cart');
+    const contenedorCarrito = document.querySelector('.container-cart-products');
+    const contadorProductos = document.getElementById('contador-productos');
+    const productosEnCarrito = [];
+
+    // Limpiar el carrito en LocalStorage cuando se recarga la página
+    localStorage.removeItem('carrito');  // Esto limpia el carrito guardado en LocalStorage
+
+    // Función para renderizar el carrito
+    function renderizarCarrito() {
+        contenedorCarrito.querySelector('.row-product').innerHTML = '';
+        if (productosEnCarrito.length === 0) {
+            // Si el carrito está vacío, mostrar el mensaje de "Carrito vacío"
+            contenedorCarrito.querySelector('.cart-empty').classList.remove('hidden');
+            contenedorCarrito.querySelector('.cart-total').classList.add('hidden');
+        } else {
+            contenedorCarrito.querySelector('.cart-empty').classList.add('hidden');
+            contenedorCarrito.querySelector('.cart-total').classList.remove('hidden');
+            productosEnCarrito.forEach(producto => {
+                const itemCarrito = document.createElement('div');
+                itemCarrito.classList.add('cart-item');
+                itemCarrito.innerHTML = `
+                    <p>${producto.nombre}</p>
+                    <span>${producto.precio}</span>
+                `;
+                contenedorCarrito.querySelector('.row-product').appendChild(itemCarrito);
+            });
+            contadorProductos.textContent = productosEnCarrito.length;
+        }
+    }
+
+    botonesAgregar.forEach((boton) => {
+        boton.addEventListener('click', (e) => {
+            const producto = e.target.closest('.item');
+            const nombreProducto = producto.querySelector('h2').textContent;
+            const precioProducto = producto.querySelector('.price').textContent;
+            
+            // Agregar el producto al array y guardarlo en LocalStorage
+            productosEnCarrito.push({nombre: nombreProducto, precio: precioProducto});
+            localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));
+
+            renderizarCarrito();
+        });
+    });
+
+    // Renderizar el carrito al cargar la página
+    window.addEventListener('load', renderizarCarrito);
+    
+        // Función para actualizar el total del carrito
+        function actualizarTotal(precioProducto) {
+            let totalActual = parseFloat(document.querySelector('.total-pagar').textContent.replace('$', ''));
+            let precio = parseFloat(precioProducto.replace('$', ''));
+            totalActual += precio;
+            document.querySelector('.total-pagar').textContent = `$${totalActual.toFixed(2)}`;
+            
+            // Ocultar el mensaje de carrito vacío y mostrar el total
+            document.querySelector('.cart-empty').classList.add('hidden');
+            document.querySelector('.cart-total').classList.remove('hidden');
+        }
+    // Selecciona el botón "Siguiente"
+    const botonSiguiente = document.getElementById('send-whatsapp');
+    const contenedorProductosCarrito = document.querySelector('.row-product');
+
+    // Evento para verificar el carrito al hacer clic en el botón "Siguiente"
+    botonSiguiente.addEventListener('click', () => {
+        const productosEnCarrito = contenedorProductosCarrito.childElementCount;
+
+        if (productosEnCarrito === 0) {
+            // Si no hay productos, muestra el mensaje de alerta
+            alert("El carro de compras está vacío, elija mínimo un par de zapatos");
+        } else {
+            // Si hay productos, redirige a "formulario_pedido.html"
+            window.location.href = "formulario_pedido.html";
+        }
+    });
+    </script>
+    <br>
+    <footer>
+        <p>Derechos reservados Porrelli | 2024 | Colombia</p>
+    </footer>       
+    <style>
+    footer {
+        background-color: #918a87; /* Mismo color que el encabezado */
+        color: white; /* Color del texto */
+        text-align: center; /* Centrar el texto */
+        padding: 10px 0; /* Espaciado vertical */
+        position: relative; /* Para un mejor control de la posición */
+        bottom: 0; /* Asegura que esté al final de la página */
+        width: 100%; /* Asegura que ocupe todo el ancho */
+        margin-top: auto; /* Empuja el footer hacia el fondo en un contenedor flex */
+    }
+    
+    footer p {
+        margin: 0; /* Elimina el margen para centrar el texto correctamente */
+        font-size: 14px; /* Tamaño de fuente más pequeño */
+    }
+</style>
+<br>
+</body>
+
+      </body>
     </div>
 
+    
 </body>
 </html>
