@@ -45,23 +45,24 @@
             background-color: #ffcd00;
             color: #333;
         }
-        footer {
-    background-color: #ec5109; /* Mismo color que el encabezado */
-    color: white; /* Color del texto */
-    text-align: center; /* Centrar el texto */
-    padding: 10px 0; /* Espaciado vertical */
-    position: relative; /* Para un mejor control de la posición */
-    bottom: 0; /* Asegura que esté al final de la página */
-    width: 100%; /* Asegura que ocupe todo el ancho */
-    margin-top: auto; /* Empuja el footer hacia el fondo en un contenedor flex */
-}
 
-footer p {
-    margin: 0; /* Elimina el margen para centrar el texto correctamente */
-    font-size: 14px; /* Tamaño de fuente más pequeño */
-}
+        /* Estilo para el footer */
+        footer {
+            background-color: #918a87; /* Mismo color que el encabezado */
+            color: white; /* Color del texto */
+            text-align: center; /* Centrar el texto */
+            padding: 10px 0; /* Espaciado vertical */
+            position: relative; /* Para un mejor control de la posición */
+            bottom: 0; /* Asegura que esté al final de la página */
+            width: 100%; /* Asegura que ocupe todo el ancho */
+            margin-top: auto; /* Empuja el footer hacia el fondo en un contenedor flex */
+        }
+
+        footer p {
+            margin: 0; /* Elimina el margen para centrar el texto correctamente */
+            font-size: 14px; /* Tamaño de fuente más pequeño */
+        }
     </style>
-    
 </head>
 <body>
     <header>
@@ -72,150 +73,61 @@ footer p {
             <a href="hombre.html">Zapatos Hombre</a>
             <a href="mujer.html">Zapatos Mujer</a>
             <a href="formulario.html">Contáctanos</a>
-           
         </nav>
     </header>
 
-    <body>
-        <header>
-          <div class="container-icon">
-            <div class="container-cart-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-cart">
+    <div class="container-icon">
+        <div class="container-cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-cart">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-              </svg>
-              <div class="count-products">
+            </svg>
+            <div class="count-products">
                 <span id="contador-productos">0</span>
-              </div>
             </div>
-            <div class="container-cart-products hidden-cart">
-              <div class="row-product hidden">
+        </div>
+        <div class="container-cart-products hidden-cart">
+            <div class="row-product hidden">
                 <!-- Productos del carrito -->
-              </div>
-              <div class="cart-total hidden">
+            </div>
+            <div class="cart-total hidden">
                 <h3>Total:</h3>
                 <span class="total-pagar">$200</span>
-              </div>
-              <p class="cart-empty">El carrito está vacío</p>
+            </div>
+            <p class="cart-empty">El carrito está vacío</p>
 
-              <button id="send-whatsapp" class="btn-whatsapp">
-                Siguiente
-            </button>
-            
-            </div>
-          </div>
-        </header>
-        <br>
-        <div class="container-items">
-            <div class="item">
-                <figure>
-                    <img src="./calzado_hombre_47.png" alt="Zapatos Hombre 47" />
-                </figure>
-                <div class="info-product">
-                    <h2>Zapatos Hombre 47</h2>
-                    <p class="price">$530</p>
-                    <button class="btn-add-cart">Añadir al carrito</button>
-                </div>
-            </div>
-            <div class="item">
-                <figure>
-                    <img src="./calzado_hombre_48.png" alt="Zapatos Hombre 48" />
-                </figure>
-                <div class="info-product">
-                    <h2>Zapatos Hombre 48</h2>
-                    <p class="price">$540</p>
-                    <button class="btn-add-cart">Añadir al carrito</button>
-                </div>
-            </div>                                                                                                                     
+            <button id="send-whatsapp" class="btn-whatsapp">Siguiente</button>
         </div>
-        <script src="index.js"></script>
-        <!-- Otros elementos de la página como el carrito, productos, etc. -->
-
-    <script>
-    const botonesAgregar = document.querySelectorAll('.btn-add-cart');
-    const contenedorCarrito = document.querySelector('.container-cart-products');
-    const contadorProductos = document.getElementById('contador-productos');
-    const productosEnCarrito = [];
-
-    // Limpiar el carrito en LocalStorage cuando se recarga la página
-    localStorage.removeItem('carrito');  // Esto limpia el carrito guardado en LocalStorage
-
-    // Función para renderizar el carrito
-    function renderizarCarrito() {
-        contenedorCarrito.querySelector('.row-product').innerHTML = '';
-        if (productosEnCarrito.length === 0) {
-            // Si el carrito está vacío, mostrar el mensaje de "Carrito vacío"
-            contenedorCarrito.querySelector('.cart-empty').classList.remove('hidden');
-            contenedorCarrito.querySelector('.cart-total').classList.add('hidden');
-        } else {
-            contenedorCarrito.querySelector('.cart-empty').classList.add('hidden');
-            contenedorCarrito.querySelector('.cart-total').classList.remove('hidden');
-            productosEnCarrito.forEach(producto => {
-                const itemCarrito = document.createElement('div');
-                itemCarrito.classList.add('cart-item');
-                itemCarrito.innerHTML = `
-                    <p>${producto.nombre}</p>
-                    <span>${producto.precio}</span>
-                `;
-                contenedorCarrito.querySelector('.row-product').appendChild(itemCarrito);
-            });
-            contadorProductos.textContent = productosEnCarrito.length;
-        }
-    }
-
-    botonesAgregar.forEach((boton) => {
-        boton.addEventListener('click', (e) => {
-            const producto = e.target.closest('.item');
-            const nombreProducto = producto.querySelector('h2').textContent;
-            const precioProducto = producto.querySelector('.price').textContent;
-            
-            // Agregar el producto al array y guardarlo en LocalStorage
-            productosEnCarrito.push({nombre: nombreProducto, precio: precioProducto});
-            localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));
-
-            renderizarCarrito();
-        });
-    });
-
-    // Renderizar el carrito al cargar la página
-    window.addEventListener('load', renderizarCarrito);
-    
-        // Función para actualizar el total del carrito
-        function actualizarTotal(precioProducto) {
-            let totalActual = parseFloat(document.querySelector('.total-pagar').textContent.replace('$', ''));
-            let precio = parseFloat(precioProducto.replace('$', ''));
-            totalActual += precio;
-            document.querySelector('.total-pagar').textContent = `$${totalActual.toFixed(2)}`;
-            
-            // Ocultar el mensaje de carrito vacío y mostrar el total
-            document.querySelector('.cart-empty').classList.add('hidden');
-            document.querySelector('.cart-total').classList.remove('hidden');
-        }
-    // Selecciona el botón "Siguiente"
-    const botonSiguiente = document.getElementById('send-whatsapp');
-    const contenedorProductosCarrito = document.querySelector('.row-product');
-
-    // Evento para verificar el carrito al hacer clic en el botón "Siguiente"
-    botonSiguiente.addEventListener('click', () => {
-        const productosEnCarrito = contenedorProductosCarrito.childElementCount;
-
-        if (productosEnCarrito === 0) {
-            // Si no hay productos, muestra el mensaje de alerta
-            alert("El carro de compras está vacío, elija mínimo un par de zapatos");
-        } else {
-            // Si hay productos, redirige a "formulario_pedido.html"
-            window.location.href = "formulario_pedido.html";
-        }
-    });
-    </script>
-
-</body>
-
-      </body>
     </div>
 
+    <br>
+    <div class="container-items">
+        <div class="item">
+            <figure>
+                <img src="./calzado_hombre_47.png" alt="Zapatos Hombre 47" />
+            </figure>
+            <div class="info-product">
+                <h2>Zapatos Hombre 47</h2>
+                <p class="price">$530</p>
+                <button class="btn-add-cart">Añadir al carrito</button>
+            </div>
+        </div>
+        <div class="item">
+            <figure>
+                <img src="./calzado_hombre_48.png" alt="Zapatos Hombre 48" />
+            </figure>
+            <div class="info-product">
+                <h2>Zapatos Hombre 48</h2>
+                <p class="price">$540</p>
+                <button class="btn-add-cart">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+    <!-- Otros elementos de la página como el carrito, productos, etc. -->
+    <br>
     <footer>
         <p>Derechos reservados Porrelli | 2024 | Colombia</p>
     </footer>
-
 </body>
 </html>
