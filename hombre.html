@@ -9,37 +9,28 @@
     <link rel="stylesheet" href="styles_small_images.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Estilos globales */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            text-align: center;
-        }
-
-        /* Encabezado */
+        /* Encabezado y menú de navegación */
         header {
             background-color: #ec5109;
-            padding: 20px 0;
+            padding: 20px;
+            text-align: center;
             color: white;
+            display: flex;
+            flex-direction: column; /* Cambia a flex-direction: column para apilar elementos verticalmente */
+            align-items: center; /* Centra horizontalmente los elementos */
         }
-
+    
         header h1 {
             font-size: 36px;
-            margin-bottom: 10px;
+            margin: 0; /* Elimina el margen para mantener el título centrado */
+            text-align: center; /* Centrar el texto "Porrelli" */
         }
-
-        /* Menú de navegación */
         nav {
-            margin: 20px 0;
+            margin-top: 20px;
+            display: flex; /* Usar flexbox para alinear los enlaces de navegación */
+            justify-content: center; /* Centrar los botones horizontalmente */
         }
-
+    
         nav a {
             color: #ffffff;
             padding: 10px 20px;
@@ -48,146 +39,13 @@
             border-radius: 5px;
             transition: background-color 0.3s;
         }
-
+    
         nav a:hover {
             background-color: #ffcd00;
             color: #333;
         }
-
-        /* Estilo de los productos */
-        .product-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px; /* Espacio entre tarjetas */
-            padding: 20px;
-        }
-
-        .product-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 250px; /* Ancho fijo de la tarjeta */
-            text-align: center; /* Centrar texto */
-            display: flex;
-            flex-direction: column; /* Alinear verticalmente */
-            align-items: center; /* Centrar horizontalmente */
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .product-card img {
-            max-width: 100%;
-            border-radius: 10px;
-            height: auto;
-            margin-bottom: 10px; /* Espacio entre la imagen y el texto */
-        }
-
-        /* Botones de añadir al carrito */
-        .add-to-cart {
-            background-color: #ec5109;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: auto; /* Empuja el botón al final de la tarjeta */
-        }
-
-        .add-to-cart:hover {
-            background-color: #ffcd00;
-            color: #333;
-        }
-
-        /* Estilo del carrito */
-        .cart {
-            margin-top: 30px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .cart h2 {
-            margin-bottom: 10px;
-            color: #ec5109;
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Centrar horizontalmente */
-            margin-bottom: 15px;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .cart-item img {
-            width: 50px; /* Ancho de la imagen en el carrito */
-            height: auto;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
-
-        /* Estilo del formulario */
-        .form-container {
-            margin-top: 30px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            display: none; /* Oculto por defecto */
-        }
-
-        .form-container input, .form-container textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-container button {
-            background-color: #ec5109;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .form-container button:hover {
-            background-color: #ffcd00;
-            color: #333;
-        }
-
-        /* Pie de página */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 15px 0;
-            margin-top: 30px;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        /* Estilos de pantalla pequeña */
-        @media (max-width: 768px) {
-            .product-card {
-                width: 90%; /* Ancho adaptado para móviles */
-            }
-        }
     </style>
+    
 </head>
 <body>
     <header>
